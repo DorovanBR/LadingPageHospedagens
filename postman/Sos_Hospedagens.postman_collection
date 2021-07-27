@@ -1,0 +1,1050 @@
+{
+	"info": {
+		"_postman_id": "a3c340cf-51c8-46da-ba96-bc99da8db6c9",
+		"name": "Sos Hospedagens",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Configurações",
+			"item": [
+				{
+					"name": "Cadastro de Configuração",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "suahushaushaushuah",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "Funcao",
+									"value": "1",
+									"type": "text"
+								},
+								{
+									"key": "TituloSite",
+									"value": "14334432424242",
+									"type": "text"
+								},
+								{
+									"key": "MetaAutores",
+									"value": "Dorovan e Devezeiros",
+									"type": "text"
+								},
+								{
+									"key": "MetaDescricao",
+									"value": "Live top pra caramba",
+									"type": "text"
+								},
+								{
+									"key": "MetaPalavrasChaves",
+									"value": "1212",
+									"type": "text"
+								},
+								{
+									"key": "MetaCharset",
+									"value": "",
+									"type": "text"
+								},
+								{
+									"key": "MetaNome",
+									"value": "",
+									"type": "text"
+								},
+								{
+									"key": "MetaIdioma",
+									"value": "",
+									"type": "text"
+								},
+								{
+									"key": "MetaCriador",
+									"value": "",
+									"type": "text"
+								},
+								{
+									"key": "MetaLayout",
+									"value": "65656",
+									"type": "text"
+								},
+								{
+									"key": "xPicpayToken",
+									"value": "2121",
+									"type": "text"
+								},
+								{
+									"key": "xSellerToken",
+									"value": "1212",
+									"type": "text"
+								},
+								{
+									"key": "linkURIPicpay",
+									"value": "65656",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://soshospedagens.local/api/configuracoes.asp",
+							"protocol": "http",
+							"host": [
+								"soshospedagens",
+								"local"
+							],
+							"path": [
+								"api",
+								"configuracoes.asp"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Alteração de Configuração",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "suahushaushaushuah",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "Funcao",
+									"value": "2",
+									"type": "text"
+								},
+								{
+									"key": "Codigo",
+									"value": "2",
+									"type": "text"
+								},
+								{
+									"key": "TituloSite",
+									"value": "NathyBR",
+									"type": "text"
+								},
+								{
+									"key": "MetaAutores",
+									"value": "Amor da Minha da Vida",
+									"type": "text"
+								},
+								{
+									"key": "MetaDescricao",
+									"value": "Meu Tudo",
+									"type": "text"
+								},
+								{
+									"key": "MetaPalavrasChaves",
+									"value": "",
+									"type": "text"
+								},
+								{
+									"key": "MetaCharset",
+									"value": "",
+									"type": "text"
+								},
+								{
+									"key": "MetaNome",
+									"value": "",
+									"type": "text"
+								},
+								{
+									"key": "MetaIdioma",
+									"value": "",
+									"type": "text"
+								},
+								{
+									"key": "MetaCriador",
+									"value": "",
+									"type": "text"
+								},
+								{
+									"key": "MetaLayout",
+									"value": "",
+									"type": "text"
+								},
+								{
+									"key": "xPicpayToken",
+									"value": "",
+									"type": "text"
+								},
+								{
+									"key": "xSellerToken",
+									"value": "",
+									"type": "text"
+								},
+								{
+									"key": "linkURIPicpay",
+									"value": "",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://soshospedagens.local/api/configuracoes.asp",
+							"protocol": "http",
+							"host": [
+								"soshospedagens",
+								"local"
+							],
+							"path": [
+								"api",
+								"configuracoes.asp"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Exclusão de Configuração",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "suahushaushaushuah",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "Funcao",
+									"value": "3",
+									"type": "text"
+								},
+								{
+									"key": "Codigo",
+									"value": "1",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://soshospedagens.local/api/configuracoes.asp",
+							"protocol": "http",
+							"host": [
+								"soshospedagens",
+								"local"
+							],
+							"path": [
+								"api",
+								"configuracoes.asp"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Consulta de Configuração",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "suahushaushaushuah",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "Funcao",
+									"value": "4",
+									"type": "text"
+								},
+								{
+									"key": "Codigo",
+									"value": "1",
+									"type": "text",
+									"disabled": true
+								}
+							]
+						},
+						"url": {
+							"raw": "http://soshospedagens.local/api/configuracoes.asp",
+							"protocol": "http",
+							"host": [
+								"soshospedagens",
+								"local"
+							],
+							"path": [
+								"api",
+								"configuracoes.asp"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Leadings",
+			"item": [
+				{
+					"name": "Cadastro de Leading",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "suahushaushaushuah",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "Funcao",
+									"value": "1",
+									"type": "text"
+								},
+								{
+									"key": "CpfCnpj",
+									"value": "123.456.789-01",
+									"type": "text"
+								},
+								{
+									"key": "Nome",
+									"value": "Teste Testado Testando",
+									"type": "text"
+								},
+								{
+									"key": "Email",
+									"value": "teste@teste.teste",
+									"type": "text"
+								},
+								{
+									"key": "Telefone",
+									"value": "(11) 99797-9797",
+									"type": "text"
+								},
+								{
+									"key": "Cep",
+									"value": "12345-67",
+									"type": "text"
+								},
+								{
+									"key": "Bairro",
+									"value": "Testes Testados Testificados",
+									"type": "text"
+								},
+								{
+									"key": "Cidade",
+									"value": "Testando Tudo",
+									"type": "text"
+								},
+								{
+									"key": "UF",
+									"value": "TT",
+									"type": "text"
+								},
+								{
+									"key": "Logradouro",
+									"value": "Teste Testavado Testorio",
+									"type": "text"
+								},
+								{
+									"key": "Numero",
+									"value": "12345",
+									"type": "text"
+								},
+								{
+									"key": "IP",
+									"value": "10.10.10.5",
+									"type": "text"
+								},
+								{
+									"key": "NavegouSite",
+									"value": "1",
+									"type": "text"
+								},
+								{
+									"key": "NavegouContato",
+									"value": "1",
+									"type": "text"
+								},
+								{
+									"key": "NavegouHospedagem",
+									"value": "1",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://soshospedagens.local/api/leadings.asp",
+							"protocol": "http",
+							"host": [
+								"soshospedagens",
+								"local"
+							],
+							"path": [
+								"api",
+								"leadings.asp"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Alteração de Leading",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "suahushaushaushuah",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "Funcao",
+									"value": "2",
+									"type": "text"
+								},
+								{
+									"key": "Codigo",
+									"value": "1",
+									"type": "text"
+								},
+								{
+									"key": "CpfCnpj",
+									"value": "123.456.789-01",
+									"type": "text"
+								},
+								{
+									"key": "Nome",
+									"value": "Teste Testado Testando",
+									"type": "text"
+								},
+								{
+									"key": "Email",
+									"value": "teste@teste.teste",
+									"type": "text"
+								},
+								{
+									"key": "Telefone",
+									"value": "(11) 99797-9797",
+									"type": "text"
+								},
+								{
+									"key": "Cep",
+									"value": "12345-67",
+									"type": "text"
+								},
+								{
+									"key": "Bairro",
+									"value": "Testes Testados Testificados",
+									"type": "text"
+								},
+								{
+									"key": "Cidade",
+									"value": "Testando Tudo",
+									"type": "text"
+								},
+								{
+									"key": "UF",
+									"value": "TT",
+									"type": "text"
+								},
+								{
+									"key": "Logradouro",
+									"value": "Teste Testavado Testorio",
+									"type": "text"
+								},
+								{
+									"key": "Numero",
+									"value": "12345",
+									"type": "text"
+								},
+								{
+									"key": "IP",
+									"value": "10.10.10.5",
+									"type": "text"
+								},
+								{
+									"key": "NavegouSite",
+									"value": "1",
+									"type": "text"
+								},
+								{
+									"key": "NavegouContato",
+									"value": "1",
+									"type": "text"
+								},
+								{
+									"key": "NavegouHospedagem",
+									"value": "1",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://soshospedagens.local/api/leadings.asp",
+							"protocol": "http",
+							"host": [
+								"soshospedagens",
+								"local"
+							],
+							"path": [
+								"api",
+								"leadings.asp"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Exclusão de Leading",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "suahushaushaushuah",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "Funcao",
+									"value": "3",
+									"type": "text"
+								},
+								{
+									"key": "Codigo",
+									"value": "2",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://soshospedagens.local/api/leadings.asp",
+							"protocol": "http",
+							"host": [
+								"soshospedagens",
+								"local"
+							],
+							"path": [
+								"api",
+								"leadings.asp"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Consulta de Leading",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "suahushaushaushuah",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "Funcao",
+									"value": "4",
+									"type": "text"
+								},
+								{
+									"key": "Codigo",
+									"value": "1",
+									"type": "text",
+									"disabled": true
+								}
+							]
+						},
+						"url": {
+							"raw": "http://soshospedagens.local/api/leadings.asp",
+							"protocol": "http",
+							"host": [
+								"soshospedagens",
+								"local"
+							],
+							"path": [
+								"api",
+								"leadings.asp"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Contato",
+			"item": [
+				{
+					"name": "Cadastro de Contato",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "suahushaushaushuah",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "Funcao",
+									"value": "1",
+									"type": "text"
+								},
+								{
+									"key": "CodLeading",
+									"value": "1",
+									"type": "text"
+								},
+								{
+									"key": "Nome",
+									"value": "Carlão da Silva Pinhões",
+									"type": "text"
+								},
+								{
+									"key": "Email",
+									"value": "luzbolinha@gmail.com",
+									"type": "text"
+								},
+								{
+									"key": "Telefone",
+									"value": "(11) 99999-9999",
+									"type": "text"
+								},
+								{
+									"key": "Assunto",
+									"value": "Contato com o Suporte Financeiro",
+									"type": "text"
+								},
+								{
+									"key": "Mensagem",
+									"value": "Olá prezados tudo bem, necessito de contato com o suporte financeiro, poderiam me auxiliar?",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://soshospedagens.local/api/contato.asp",
+							"protocol": "http",
+							"host": [
+								"soshospedagens",
+								"local"
+							],
+							"path": [
+								"api",
+								"contato.asp"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Alteração de Contato",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "suahushaushaushuah",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "Funcao",
+									"value": "2",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://soshospedagens.local/api/contato.asp",
+							"protocol": "http",
+							"host": [
+								"soshospedagens",
+								"local"
+							],
+							"path": [
+								"api",
+								"contato.asp"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Exclusão de Contato",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "suahushaushaushuah",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "Funcao",
+									"value": "3",
+									"type": "text"
+								},
+								{
+									"key": "Codigo",
+									"value": "2",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://soshospedagens.local/api/contato.asp",
+							"protocol": "http",
+							"host": [
+								"soshospedagens",
+								"local"
+							],
+							"path": [
+								"api",
+								"contato.asp"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Consulta de Contato",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "suahushaushaushuah",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "Funcao",
+									"value": "4",
+									"type": "text"
+								},
+								{
+									"key": "Codigo",
+									"value": "1",
+									"type": "text",
+									"disabled": true
+								}
+							]
+						},
+						"url": {
+							"raw": "http://soshospedagens.local/api/contato.asp",
+							"protocol": "http",
+							"host": [
+								"soshospedagens",
+								"local"
+							],
+							"path": [
+								"api",
+								"contato.asp"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Serviços",
+			"item": [
+				{
+					"name": "Cadastro de Serviço",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "suahushaushaushuah",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "Funcao",
+									"value": "1",
+									"type": "text"
+								},
+								{
+									"key": "Nome",
+									"value": "Plano Basic",
+									"type": "text"
+								},
+								{
+									"key": "Descricao",
+									"value": "\"{\\\"teste\\\": \\\"Testado\\\"}\"",
+									"type": "text"
+								},
+								{
+									"key": "Valor",
+									"value": "19.90",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://soshospedagens.local/api/servicos.asp",
+							"protocol": "http",
+							"host": [
+								"soshospedagens",
+								"local"
+							],
+							"path": [
+								"api",
+								"servicos.asp"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Alteração de Serviço",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "suahushaushaushuah",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "Funcao",
+									"value": "2",
+									"type": "text"
+								},
+								{
+									"key": "Codigo",
+									"value": "1",
+									"type": "text"
+								},
+								{
+									"key": "Nome",
+									"value": "Plano Starter",
+									"type": "text"
+								},
+								{
+									"key": "Descricao",
+									"value": "",
+									"type": "text",
+									"disabled": true
+								},
+								{
+									"key": "Valor",
+									"value": "",
+									"type": "text",
+									"disabled": true
+								}
+							]
+						},
+						"url": {
+							"raw": "http://soshospedagens.local/api/servicos.asp",
+							"protocol": "http",
+							"host": [
+								"soshospedagens",
+								"local"
+							],
+							"path": [
+								"api",
+								"servicos.asp"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Exclusão de Serviço",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "suahushaushaushuah",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "Funcao",
+									"value": "3",
+									"type": "text"
+								},
+								{
+									"key": "Codigo",
+									"value": "2",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://soshospedagens.local/api/servicos.asp",
+							"protocol": "http",
+							"host": [
+								"soshospedagens",
+								"local"
+							],
+							"path": [
+								"api",
+								"servicos.asp"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Consulta de Serviço",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "suahushaushaushuah",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "Funcao",
+									"value": "4",
+									"type": "text"
+								},
+								{
+									"key": "Codigo",
+									"value": "1",
+									"type": "text",
+									"disabled": true
+								}
+							]
+						},
+						"url": {
+							"raw": "http://soshospedagens.local/api/servicos.asp",
+							"protocol": "http",
+							"host": [
+								"soshospedagens",
+								"local"
+							],
+							"path": [
+								"api",
+								"servicos.asp"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
