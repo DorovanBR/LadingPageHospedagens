@@ -11,13 +11,13 @@
 	'|-Projeto: SOS Hospedagens     				        	                    |'
 	'|-Versão: 1.0									        	                    |'
 	'+------------------------------------------------------------------------------+'
-	'|-API: Serviços da Landinpage       			        	                    |'
+	'|-API: Ordens de Serviço da Landinpage       			        	            |'
 	'+------------------------------------------------------------------------------+'
 	'|-Metodos da API:  							        	                    |'
-	'|- (1) - Cadastro de Serviços  				        	                    |'
-	'|- (2) - Alteração de Serviços 				        	                    |'
-	'|- (3) - Exclusão de Serviços  				        	                    |'
-	'|- (4) - Consulta de Serviços  				        	                    |'
+	'|- (1) - Cadastro de Ordens de Serviço  				        	            |'
+	'|- (2) - Alteração de Ordens de Serviço 				        	            |'
+	'|- (3) - Exclusão de Ordens de Serviço  				        	            |'
+	'|- (4) - Consulta de Ordens de Serviço  				        	            |'
 	'+------------------------------------------------------------------------------+'
 	'|-Funções da API:								        	                    |'
 	'+------------------------------------------------------------------------------+'
@@ -34,23 +34,27 @@
 
                 'Declara as Variaveis
 
-                    Nome = EncodeUTF8(Request("Nome"))
-                    Descricao = EncodeUTF8(Request("Descricao"))
-                    Valor = Request("Valor")
+                    CodLeading = Request("CodLeading")
+                    CodServico = Request("CodServico")
+                    FormaPagamento = EncodeUTF8(Request("FormaPagamento"))
+                    ValorTotal = Request("ValorTotal")
+                    Vencimento = Request("Vencimento")
+                    Status = EncodeUTF8(Request("Status"))
+                    LinkPagamento = Request("LinkPagamento")
                     
                     colunas_sql = ""
                     campos_sql = ""
 
                 'Estrutura as colunas e valores do SQL
 
-                    if trim(Nome) <> "" then
-                        colunas_sql = colunas_sql & "nome, "
-                        campos_sql = campos_sql & "'" & Nome & "', "
+                    if trim(CodLeading) <> "" then
+                        colunas_sql = colunas_sql & "cod_leading, "
+                        campos_sql = campos_sql & "" & CodLeading & ", "
                     else
                         'Estrutura o JSON de retorno
 
                             MensagemTitulo = "Ops"
-                            MensagemTexto = "O Nome do registro não foi enviado ou esta incorreto, tente novamente mais tarde"
+                            MensagemTexto = "O Codigo do Leading do registro não foi enviado ou esta incorreto, tente novamente mais tarde"
                             MensagemTipo = "error"
                             StatusRequisicao = 406
 
@@ -74,14 +78,14 @@
                             Response.End
                     end if
 
-                    if trim(Descricao) <> "" then
-                        colunas_sql = colunas_sql & "descricao, "
-                        campos_sql = campos_sql & "'" & Descricao & "', "
+                    if trim(CodServico) <> "" then
+                        colunas_sql = colunas_sql & "cod_servico, "
+                        campos_sql = campos_sql & "" & CodServico & ", "
                     else
                         'Estrutura o JSON de retorno
 
                             MensagemTitulo = "Ops"
-                            MensagemTexto = "A Descrição do registro não foi enviado ou esta incorreto, tente novamente mais tarde"
+                            MensagemTexto = "O Codigo do Serviço do registro não foi enviado ou esta incorreto, tente novamente mais tarde"
                             MensagemTipo = "error"
                             StatusRequisicao = 406
 
@@ -105,14 +109,14 @@
                             Response.End
                     end if
 
-                    if trim(Valor) <> "" then
-                        colunas_sql = colunas_sql & "valor, "
-                        campos_sql = campos_sql & "" & Valor & ", "
+                    if trim(FormaPagamento) <> "" then
+                        colunas_sql = colunas_sql & "forma_pagamento, "
+                        campos_sql = campos_sql & "'" & FormaPagamento & "', "
                     else
                         'Estrutura o JSON de retorno
 
                             MensagemTitulo = "Ops"
-                            MensagemTexto = "O Valor do registro não foi enviado ou esta incorreto, tente novamente mais tarde"
+                            MensagemTexto = "A Forma de Pagamento do registro não foi enviado ou esta incorreto, tente novamente mais tarde"
                             MensagemTipo = "error"
                             StatusRequisicao = 406
 
@@ -134,6 +138,104 @@
                             Response.Status = StatusRequisicao
                             Response.Write retornoJSON
                             Response.End
+                    end if
+
+                    if trim(ValorTotal) <> "" then
+                        colunas_sql = colunas_sql & "valor_total, "
+                        campos_sql = campos_sql & "" & ValorTotal & ", "
+                    else
+                        'Estrutura o JSON de retorno
+
+                            MensagemTitulo = "Ops"
+                            MensagemTexto = "O Valor Total do registro não foi enviado ou esta incorreto, tente novamente mais tarde"
+                            MensagemTipo = "error"
+                            StatusRequisicao = 406
+
+                            retornoJSON = "{"
+                            retornoJSON = retornoJSON & """Mensagem"": {"
+                            retornoJSON = retornoJSON & """Titulo"": """ & MensagemTitulo & ""","
+                            retornoJSON = retornoJSON & """Texto"": """ & MensagemTexto & ""","
+                            retornoJSON = retornoJSON & """Tipo"": """ & MensagemTipo & ""","
+                            retornoJSON = retornoJSON & "},"
+                            retornoJSON = retornoJSON & """Requisicao"": {"
+                            retornoJSON = retornoJSON & """Status"": " & StatusRequisicao & ","
+                            retornoJSON = retornoJSON & """Link_Referencia"": """ & CVG_URL & """"
+                            retornoJSON = retornoJSON & "}"
+                            retornoJSON = retornoJSON & "}"
+                            
+                        'Define o tipo de retorno e traz os dados em tela
+
+                            Response.ContentType = "application/json"
+                            Response.Status = StatusRequisicao
+                            Response.Write retornoJSON
+                            Response.End
+                    end if
+
+                    if trim(Vencimento) <> "" then
+                        colunas_sql = colunas_sql & "vencimento, "
+                        campos_sql = campos_sql & "'" & Vencimento & "', "
+                    else
+                        'Estrutura o JSON de retorno
+
+                            MensagemTitulo = "Ops"
+                            MensagemTexto = "O Vencimento do registro não foi enviado ou esta incorreto, tente novamente mais tarde"
+                            MensagemTipo = "error"
+                            StatusRequisicao = 406
+
+                            retornoJSON = "{"
+                            retornoJSON = retornoJSON & """Mensagem"": {"
+                            retornoJSON = retornoJSON & """Titulo"": """ & MensagemTitulo & ""","
+                            retornoJSON = retornoJSON & """Texto"": """ & MensagemTexto & ""","
+                            retornoJSON = retornoJSON & """Tipo"": """ & MensagemTipo & ""","
+                            retornoJSON = retornoJSON & "},"
+                            retornoJSON = retornoJSON & """Requisicao"": {"
+                            retornoJSON = retornoJSON & """Status"": " & StatusRequisicao & ","
+                            retornoJSON = retornoJSON & """Link_Referencia"": """ & CVG_URL & """"
+                            retornoJSON = retornoJSON & "}"
+                            retornoJSON = retornoJSON & "}"
+                            
+                        'Define o tipo de retorno e traz os dados em tela
+
+                            Response.ContentType = "application/json"
+                            Response.Status = StatusRequisicao
+                            Response.Write retornoJSON
+                            Response.End
+                    end if
+
+                    if trim(Status) <> "" then
+                        colunas_sql = colunas_sql & "status, "
+                        campos_sql = campos_sql & "'" & Status & "', "
+                    else
+                        'Estrutura o JSON de retorno
+
+                            MensagemTitulo = "Ops"
+                            MensagemTexto = "O Status do registro não foi enviado ou esta incorreto, tente novamente mais tarde"
+                            MensagemTipo = "error"
+                            StatusRequisicao = 406
+
+                            retornoJSON = "{"
+                            retornoJSON = retornoJSON & """Mensagem"": {"
+                            retornoJSON = retornoJSON & """Titulo"": """ & MensagemTitulo & ""","
+                            retornoJSON = retornoJSON & """Texto"": """ & MensagemTexto & ""","
+                            retornoJSON = retornoJSON & """Tipo"": """ & MensagemTipo & ""","
+                            retornoJSON = retornoJSON & "},"
+                            retornoJSON = retornoJSON & """Requisicao"": {"
+                            retornoJSON = retornoJSON & """Status"": " & StatusRequisicao & ","
+                            retornoJSON = retornoJSON & """Link_Referencia"": """ & CVG_URL & """"
+                            retornoJSON = retornoJSON & "}"
+                            retornoJSON = retornoJSON & "}"
+                            
+                        'Define o tipo de retorno e traz os dados em tela
+
+                            Response.ContentType = "application/json"
+                            Response.Status = StatusRequisicao
+                            Response.Write retornoJSON
+                            Response.End
+                    end if
+
+                    if trim(LinkPagamento) <> "" then
+                        colunas_sql = colunas_sql & "link_pagamento, "
+                        campos_sql = campos_sql & "'" & LinkPagamento & "', "
                     end if
 
                 'Insere os Campos de Controle
@@ -155,18 +257,18 @@
 
                 'Estrutura a String SQL
 
-                    string_sql = "insert into servicos ("&colunas_sql&") VALUES ("&campos_sql&")"
+                    string_sql = "insert into ordens_servico ("&colunas_sql&") VALUES ("&campos_sql&")"
 
                     ' call debuga(string_sql, true)
 
                 'Realiza a Inserção
 
-                    set insereServico = ConexaoBD.Execute(string_sql)
+                    set insereOrdemServico = ConexaoBD.Execute(string_sql)
 
                 'Estrutura o JSON de retorno
 
                     MensagemTitulo = "Sucesso"
-                    MensagemTexto = "Serviço Cadastrado com sucesso."
+                    MensagemTexto = "Ordem de Serviço Cadastrada com sucesso."
                     MensagemTipo = "success"
                     StatusRequisicao = 200
 
@@ -194,9 +296,13 @@
                 'Declara as Variaveis
 
                     Codigo = Request("Codigo")
-                    Nome = EncodeUTF8(Request("Nome"))
-                    Descricao = EncodeUTF8(Request("Descricao"))
-                    Valor = Request("Valor")
+                    CodLeading = Request("CodLeading")
+                    CodServico = Request("CodServico")
+                    FormaPagamento = EncodeUTF8(Request("FormaPagamento"))
+                    ValorTotal = Request("ValorTotal")
+                    Vencimento = Request("Vencimento")
+                    Status = EncodeUTF8(Request("Status"))
+                    LinkPagamento = Request("LinkPagamento")
 
                     campos_sql = ""
 
@@ -232,16 +338,32 @@
 
                 'Estrutura as colunas e valores do SQL
 
-                    if trim(Nome) <> "" then
-                        campos_sql = campos_sql & "nome = '" & Nome & "', "
+                    if trim(CodLeading) <> "" then
+                        campos_sql = campos_sql & "cod_leading = " & CodLeading & ", "
                     end if
 
-                    if trim(Descricao) <> "" then
-                        campos_sql = campos_sql & "descricao = '" & Descricao & "', "
+                    if trim(CodServico) <> "" then
+                        campos_sql = campos_sql & "cod_servico = " & CodServico & ", "
                     end if
 
-                    if trim(Valor) <> "" then
-                        campos_sql = campos_sql & "valor = " & Valor & ", "
+                    if trim(FormaPagamento) <> "" then
+                        campos_sql = campos_sql & "forma_pagamento = '" & FormaPagamento & "', "
+                    end if
+
+                    if trim(ValorTotal) <> "" then
+                        campos_sql = campos_sql & "valor_total = " & ValorTotal & ", "
+                    end if
+
+                    if trim(Vencimento) <> "" then
+                        campos_sql = campos_sql & "vencimento = '" & Vencimento & "', "
+                    end if
+
+                    if trim(Status) <> "" then
+                        campos_sql = campos_sql & "status = '" & Status & "', "
+                    end if
+
+                    if trim(LinkPagamento) <> "" then
+                        campos_sql = campos_sql & "link_pagamento = '" & LinkPagamento & "', "
                     end if
 
                 'Insere os Campos de Controle
@@ -257,18 +379,18 @@
 
                 'Estrutura a String SQL
 
-                    string_sql = "update servicos set " & campos_sql & " where codigo = " & Codigo
+                    string_sql = "update ordens_servico set " & campos_sql & " where codigo = " & Codigo
 
                     ' call debuga(string_sql, true)
 
                 'Realiza a Alteração
 
-                    set alteraServico = ConexaoBD.Execute(string_sql)
+                    set alteraOrdemServico = ConexaoBD.Execute(string_sql)
 
                 'Estrutura o JSON de retorno
 
                     MensagemTitulo = "Sucesso"
-                    MensagemTexto = "Serviço Atualizado com sucesso."
+                    MensagemTexto = "Ordem de Serviço Atualizada com sucesso."
                     MensagemTipo = "success"
                     StatusRequisicao = 200
 
@@ -331,7 +453,7 @@
 
                 'Verifica se o Registro já foi excluido
 
-                    string_sql = "select count(codigo) as Total from servicos where cod_situacao = 2 and codigo = " & Codigo
+                    string_sql = "select count(codigo) as Total from ordens_servico where cod_situacao = 2 and codigo = " & Codigo
 
                     set checaRegistro = ConexaoBD.Execute(string_sql)
 
@@ -378,13 +500,13 @@
 
                         'Estrutura a String SQL
 
-                            string_sql = "update servicos set " & campos_sql & " where codigo = " & Codigo
+                            string_sql = "update ordens_servico set " & campos_sql & " where codigo = " & Codigo
 
                             ' call debuga(string_sql, true)
 
                         'Realiza a Exclusão
 
-                            set excluirServico = ConexaoBD.Execute(string_sql)
+                            set excluiOrdemServico = ConexaoBD.Execute(string_sql)
 
                         'Estrutura o JSON de retorno
 
@@ -423,52 +545,60 @@
                 'Verifica se o Codigo foi inserido                    
 
                     if cInt(Codigo) = 0 or Codigo = "" then
-                        string_sql = "select * from servicos where cod_situacao = 1"
+                        string_sql = "select * from ordens_servico where cod_situacao = 1"
                     else
-                        string_sql = "select * from servicos where cod_situacao = 1 and codigo = " & Codigo
+                        string_sql = "select * from ordens_servico where cod_situacao = 1 and codigo = " & Codigo
                     end if
 
                 'Verifica se o Registro já foi excluido
 
-                    set consultaServicos = ConexaoBD.Execute(string_sql)
+                    set consultaOrdemServico = ConexaoBD.Execute(string_sql)
 
                 'Cria a Estrutura dos Registros
 
-                    EstruturaServicos = ""
+                    EstruturaOrdemServico = ""
 
                 'Faz um laço de repetição para listar os dados na tela
 
-                    while not consultaServicos.eof
+                    while not consultaOrdemServico.eof
 
-                        Nome = consultaServicos("nome")
-                        Descricao = consultaServicos("descricao")
-                        Valor = consultaServicos("valor")
-                        DataCadastro = consultaServicos("data_cadastro")
-                        HorarioCadastro = consultaServicos("horario_cadastro")
-                        DataAtualizacao = consultaServicos("data_atualizacao")
-                        HorarioAtualizacao = consultaServicos("horario_atualizacao")
+                        CodLeading = consultaOrdemServico("cod_leading")
+                        CodServico = consultaOrdemServico("cod_servico")
+                        FormaPagamento = consultaOrdemServico("forma_pagamento")
+                        ValorTotal = consultaOrdemServico("valor_total")
+                        Vencimento = consultaOrdemServico("vencimento")
+                        Status = consultaOrdemServico("status")
+                        LinkPagamento = consultaOrdemServico("link_pagamento")
+                        DataCadastro = consultaOrdemServico("data_cadastro")
+                        HorarioCadastro = consultaOrdemServico("horario_cadastro")
+                        DataAtualizacao = consultaOrdemServico("data_atualizacao")
+                        HorarioAtualizacao = consultaOrdemServico("horario_atualizacao")
 
-                        EstruturaServicos = EstruturaServicos & "{"
-                        EstruturaServicos = EstruturaServicos & """Nome"": """ & DecodeUTF8(Nome) & ""","
-                        EstruturaServicos = EstruturaServicos & """Descricao"": """ & DecodeUTF8(Descricao) & ""","
-                        EstruturaServicos = EstruturaServicos & """Valor"": """ & Valor & ""","
-                        EstruturaServicos = EstruturaServicos & """DataCadastro"": """ & DataCadastro & ""","
-                        EstruturaServicos = EstruturaServicos & """HorarioCadastro"": """ & HorarioCadastro & ""","
-                        EstruturaServicos = EstruturaServicos & """DataAtualizacao"": """ & DataAtualizacao & ""","
-                        EstruturaServicos = EstruturaServicos & """HorarioAtualizacao"": """ & HorarioAtualizacao & """"
-                        EstruturaServicos = EstruturaServicos & "}"
+                        EstruturaOrdemServico = EstruturaOrdemServico & "{"
+                        EstruturaOrdemServico = EstruturaOrdemServico & """CodLeading"": """ & CodLeading & ""","
+                        EstruturaOrdemServico = EstruturaOrdemServico & """CodServico"": """ & CodServico & ""","
+                        EstruturaOrdemServico = EstruturaOrdemServico & """FormaPagamento"": """ & DecodeUTF8(FormaPagamento) & ""","
+                        EstruturaOrdemServico = EstruturaOrdemServico & """ValorTotal"": """ & ValorTotal & ""","
+                        EstruturaOrdemServico = EstruturaOrdemServico & """Vencimento"": """ & Vencimento & ""","
+                        EstruturaOrdemServico = EstruturaOrdemServico & """Status"": """ & DecodeUTF8(Status) & ""","
+                        EstruturaOrdemServico = EstruturaOrdemServico & """LinkPagamento"": """ & LinkPagamento & ""","
+                        EstruturaOrdemServico = EstruturaOrdemServico & """DataCadastro"": """ & DataCadastro & ""","
+                        EstruturaOrdemServico = EstruturaOrdemServico & """HorarioCadastro"": """ & HorarioCadastro & ""","
+                        EstruturaOrdemServico = EstruturaOrdemServico & """DataAtualizacao"": """ & DataAtualizacao & ""","
+                        EstruturaOrdemServico = EstruturaOrdemServico & """HorarioAtualizacao"": """ & HorarioAtualizacao & """"
+                        EstruturaOrdemServico = EstruturaOrdemServico & "}"
 
-                        consultaServicos.movenext
+                        consultaOrdemServico.movenext
                     wend
 
                 'Ajusta a Estrutura dos Registros JSON
 
-                    EstruturaServicos = replace(EstruturaServicos, "}{", "},{")
+                    EstruturaOrdemServico = replace(EstruturaOrdemServico, "}{", "},{")
 
                 'Estrutura o JSON de retorno
 
                     MensagemTitulo = "Sucesso"
-                    MensagemTexto = "Serviços carregados com sucesso."
+                    MensagemTexto = "Ordens de Serviço carregados com sucesso."
                     MensagemTipo = "success"
                     StatusRequisicao = 200
 
@@ -479,7 +609,7 @@
                     retornoJSON = retornoJSON & """Tipo"": """ & MensagemTipo & ""","
                     retornoJSON = retornoJSON & "},"
                     retornoJSON = retornoJSON & """Requisicao"": {"
-                    retornoJSON = retornoJSON & """Retorno"": [" & EstruturaServicos & "],"
+                    retornoJSON = retornoJSON & """Retorno"": [" & EstruturaOrdemServico & "],"
                     retornoJSON = retornoJSON & """Status"": " & StatusRequisicao & ","
                     retornoJSON = retornoJSON & """Link_Referencia"": """ & CVG_URL & """"
                     retornoJSON = retornoJSON & "}"
