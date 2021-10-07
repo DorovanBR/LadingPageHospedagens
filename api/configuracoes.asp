@@ -43,8 +43,9 @@
                     MetaIdioma = EncodeUTF8(Request("MetaIdioma"))
                     MetaCriador = EncodeUTF8(Request("MetaCriador"))
                     MetaLayout = EncodeUTF8(Request("MetaLayout"))
-                    xPicpayToken = Request("xPicpayToken")
-                    xSellerToken = Request("xSellerToken")
+                    JunoClientId = Request("JunoClientId")
+                    JunoClientSecret = Request("JunoClientSecret")
+                    JunoResourceToken = Request("JunoResourceToken")
                     linkURIPicpay = Request("linkURIPicpay")
                     
                     colunas_sql = ""
@@ -97,14 +98,19 @@
                         campos_sql = campos_sql & "'" & MetaLayout & "', "
                     end if
 
-                    if trim(xPicpayToken) <> "" then
-                        colunas_sql = colunas_sql & "x_picpay_token, "
-                        campos_sql = campos_sql & "'" & xPicpayToken & "', "
+                    if trim(JunoClientId) <> "" then
+                        colunas_sql = colunas_sql & "juno_clientId, "
+                        campos_sql = campos_sql & "'" & JunoClientId & "', "
                     end if
 
-                    if trim(xSellerToken) <> "" then
-                        colunas_sql = colunas_sql & "x_seller_token, "
-                        campos_sql = campos_sql & "'" & xSellerToken & "', "
+                    if trim(JunoClientSecret) <> "" then
+                        colunas_sql = colunas_sql & "juno_clientSecret, "
+                        campos_sql = campos_sql & "'" & JunoClientSecret & "', "
+                    end if
+
+                    if trim(JunoResourceToken) <> "" then
+                        colunas_sql = colunas_sql & "juno_resourceToken, "
+                        campos_sql = campos_sql & "'" & JunoResourceToken & "', "
                     end if
 
                     if trim(linkURIPicpay) <> "" then
@@ -179,8 +185,9 @@
                     MetaIdioma = EncodeUTF8(Request("MetaIdioma"))
                     MetaCriador = EncodeUTF8(Request("MetaCriador"))
                     MetaLayout = EncodeUTF8(Request("MetaLayout"))
-                    xPicpayToken = Request("xPicpayToken")
-                    xSellerToken = Request("xSellerToken")
+                    JunoClientId = Request("JunoClientId")
+                    JunoClientSecret = Request("JunoClientSecret")
+                    JunoResourceToken = Request("JunoResourceToken")
                     linkURIPicpay = Request("linkURIPicpay")
                     
                     campos_sql = ""
@@ -254,12 +261,16 @@
                         campos_sql = campos_sql & "meta_layout = '" & MetaLayout & "', "
                     end if
 
-                    if trim(xPicpayToken) <> "" then
-                        campos_sql = campos_sql & "x_picpay_token = '" & xPicpayToken & "', "
+                    if trim(JunoClientId) <> "" then
+                        campos_sql = campos_sql & "juno_clientId = '" & JunoClientId & "', "
                     end if
 
-                    if trim(xSellerToken) <> "" then
-                        campos_sql = campos_sql & "x_seller_token = '" & xSellerToken & "', "
+                    if trim(JunoClientSecret) <> "" then
+                        campos_sql = campos_sql & "juno_clientSecret = '" & JunoClientSecret & "', "
+                    end if
+
+                    if trim(JunoResourceToken) <> "" then
+                        campos_sql = campos_sql & "juno_resourceToken = '" & JunoResourceToken & "', "
                     end if
 
                     if trim(linkURIPicpay) <> "" then
@@ -471,8 +482,9 @@
                         MetaIdioma = consultaConfiguracao("meta_idioma")
                         MetaCriador = consultaConfiguracao("meta_criador")
                         MetaLayout = consultaConfiguracao("meta_layout")
-                        xPicpayToken = consultaConfiguracao("x_picpay_token")
-                        xSellerToken = consultaConfiguracao("x_seller_token")
+                        JunoClientId = consultaConfiguracao("juno_clientId")
+                        JunoClientSecret = consultaConfiguracao("juno_clientSecret")
+                        JunoResourceToken = consultaConfiguracao("juno_resourceToken")
                         linkURIPicpay = consultaConfiguracao("link_uri_picpay")
                         DataCadastro = consultaConfiguracao("data_cadastro")
                         HorarioCadastro = consultaConfiguracao("horario_cadastro")
@@ -489,8 +501,9 @@
                         EstruturaConfiguracoes = EstruturaConfiguracoes & """MetaIdioma"": """ & DecodeUTF8(MetaIdioma) & ""","
                         EstruturaConfiguracoes = EstruturaConfiguracoes & """MetaCriador"": """ & DecodeUTF8(MetaCriador) & ""","
                         EstruturaConfiguracoes = EstruturaConfiguracoes & """MetaLayout"": """ & DecodeUTF8(MetaLayout) & ""","
-                        EstruturaConfiguracoes = EstruturaConfiguracoes & """xPicpayToken"": """ & xPicpayToken & ""","
-                        EstruturaConfiguracoes = EstruturaConfiguracoes & """xSellerToken"": """ & xSellerToken & ""","
+                        EstruturaConfiguracoes = EstruturaConfiguracoes & """JunoClientId"": """ & JunoClientId & ""","
+                        EstruturaConfiguracoes = EstruturaConfiguracoes & """JunoClientSecret"": """ & JunoClientSecret & ""","
+                        EstruturaConfiguracoes = EstruturaConfiguracoes & """JunoResourceToken"": """ & JunoClientSecret & ""","
                         EstruturaConfiguracoes = EstruturaConfiguracoes & """linkURIPicpay"": """ & linkURIPicpay & ""","
                         EstruturaConfiguracoes = EstruturaConfiguracoes & """DataCadastro"": """ & DataCadastro & ""","
                         EstruturaConfiguracoes = EstruturaConfiguracoes & """HorarioCadastro"": """ & HorarioCadastro & ""","
