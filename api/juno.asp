@@ -6,6 +6,8 @@
 <!--#include file="helpers/helper_Debugger.asp"-->
 <!--#include file="helpers/helper_Datas.asp"-->
 <!--#include file="helpers/helper_ByteToString.asp"-->
+<!--#include file="helpers/helper_FuncoesURL.asp"-->
+<!--#include file="helpers/helper_FuncoesAPI.asp"-->
 <%
 
 	'+------------------------------------------------------------------------------+'
@@ -123,11 +125,6 @@
                         
                                 'Estrutura o JSON de retorno
 
-                                    MensagemTitulo = "Sucesso"
-                                    MensagemTexto = "Token Carregado com sucesso."
-                                    MensagemTipo = "success"
-                                    StatusRequisicao = 200
-
                                     DadosSessao = "{"
                                     DadosSessao = DadosSessao & """Token"": """ & retorno("access_token") & ""","
                                     DadosSessao = DadosSessao & """DataAtual"": """ & CDate(DataHorarioAtual) & ""","
@@ -135,49 +132,21 @@
                                     DadosSessao = DadosSessao & """ResourceToken"": """ & ConsultaConfiguracao("juno_resourceToken") & """"
                                     DadosSessao = DadosSessao & "}"
 
-                                    retornoJSON = "{"
-                                    retornoJSON = retornoJSON & """Mensagem"": {"
-                                    retornoJSON = retornoJSON & """Titulo"": """ & MensagemTitulo & ""","
-                                    retornoJSON = retornoJSON & """Texto"": """ & MensagemTexto & ""","
-                                    retornoJSON = retornoJSON & """Tipo"": """ & MensagemTipo & ""","
-                                    retornoJSON = retornoJSON & "},"
-                                    retornoJSON = retornoJSON & """Requisicao"": {"
-                                    retornoJSON = retornoJSON & """Status"": " & StatusRequisicao & ","
-                                    retornoJSON = retornoJSON & """Retorno"": " & DadosSessao & ","
-                                    retornoJSON = retornoJSON & """Link_Referencia"": """ & CVG_URL & """"
-                                    retornoJSON = retornoJSON & "}"
-                                    retornoJSON = retornoJSON & "}"
-
-                                    SolicitaToken = retornoJSON
+                                    SolicitaToken = DadosSessao
                                     Exit Function
                             else
-                                MensagemTitulo = "Sucesso"
-                                MensagemTexto = "Token Carregado com sucesso."
-                                MensagemTipo = "success"
-                                StatusRequisicao = 200
+                            
+                                'Estrutura o JSON de retorno
                                 
-                                DadosSessao = "{"
-                                DadosSessao = DadosSessao & """Token"": """ & ConsultaAutenticacaoValida("access_token") & ""","
-                                DadosSessao = DadosSessao & """DataAtual"": """ & CDate(DataHorarioAtual) & ""","
-                                DadosSessao = DadosSessao & """DataExpiracao"": """ & CDate(DataHorarioExpiracao) & ""","
-                                DadosSessao = DadosSessao & """ResourceToken"": """ & ConsultaConfiguracao("juno_resourceToken") & """"
-                                DadosSessao = DadosSessao & "}" 
-
-                                retornoJSON = "{"
-                                retornoJSON = retornoJSON & """Mensagem"": {"
-                                retornoJSON = retornoJSON & """Titulo"": """ & MensagemTitulo & ""","
-                                retornoJSON = retornoJSON & """Texto"": """ & MensagemTexto & ""","
-                                retornoJSON = retornoJSON & """Tipo"": """ & MensagemTipo & ""","
-                                retornoJSON = retornoJSON & "},"
-                                retornoJSON = retornoJSON & """Requisicao"": {"
-                                retornoJSON = retornoJSON & """Status"": " & StatusRequisicao & ","
-                                retornoJSON = retornoJSON & """Retorno"": " & DadosSessao & ","
-                                retornoJSON = retornoJSON & """Link_Referencia"": """ & CVG_URL & """"
-                                retornoJSON = retornoJSON & "}"
-                                retornoJSON = retornoJSON & "}"
-                                
-                                SolicitaToken = retornoJSON
-                                Exit Function
+                                    DadosSessao = "{"
+                                    DadosSessao = DadosSessao & """Token"": """ & ConsultaAutenticacaoValida("access_token") & ""","
+                                    DadosSessao = DadosSessao & """DataAtual"": """ & CDate(DataHorarioAtual) & ""","
+                                    DadosSessao = DadosSessao & """DataExpiracao"": """ & CDate(DataHorarioExpiracao) & ""","
+                                    DadosSessao = DadosSessao & """ResourceToken"": """ & ConsultaConfiguracao("juno_resourceToken") & """"
+                                    DadosSessao = DadosSessao & "}"
+                                    
+                                    SolicitaToken = DadosSessao
+                                    Exit Function
                             end if
 
                             ConsultaAutenticacaoValida.movenext
@@ -234,11 +203,6 @@
             
                     'Estrutura o JSON de retorno
 
-                        MensagemTitulo = "Sucesso"
-                        MensagemTexto = "Token Carregado com sucesso."
-                        MensagemTipo = "success"
-                        StatusRequisicao = 200
-
                         DadosSessao = "{"
                         DadosSessao = DadosSessao & """Token"": """ & retorno("access_token") & ""","
                         DadosSessao = DadosSessao & """DataAtual"": """ & CDate(DataHorarioAtual) & ""","
@@ -246,20 +210,7 @@
                         DadosSessao = DadosSessao & """ResourceToken"": """ & ConsultaConfiguracao("juno_resourceToken") & """"
                         DadosSessao = DadosSessao & "}"
 
-                        retornoJSON = "{"
-                        retornoJSON = retornoJSON & """Mensagem"": {"
-                        retornoJSON = retornoJSON & """Titulo"": """ & MensagemTitulo & ""","
-                        retornoJSON = retornoJSON & """Texto"": """ & MensagemTexto & ""","
-                        retornoJSON = retornoJSON & """Tipo"": """ & MensagemTipo & ""","
-                        retornoJSON = retornoJSON & "},"
-                        retornoJSON = retornoJSON & """Requisicao"": {"
-                        retornoJSON = retornoJSON & """Status"": " & StatusRequisicao & ","
-                        retornoJSON = retornoJSON & """Retorno"": " & DadosSessao("Retorno") & ","
-                        retornoJSON = retornoJSON & """Link_Referencia"": """ & CVG_URL & """"
-                        retornoJSON = retornoJSON & "}"
-                        retornoJSON = retornoJSON & "}"
-
-                        SolicitaToken = retornoJSON
+                        SolicitaToken = DadosSessao
 
                 end if
 
@@ -277,14 +228,18 @@
 
                 'Gera o Token
 
-                    DadosSessao = SolicitaToken(Configuracao)
+                    DadosRetorno = SolicitaToken(Configuracao)
+                
+                'Estrutura o JSON de retorno
+
+                    MensagemTitulo = "Sucesso"
+                    MensagemTexto = "Token Carregado com sucesso."
+                    MensagemTipo = "success"
+                    StatusRequisicao = 200
                     
                 'Define o tipo de retorno e traz os dados em tela
 
-                    Response.ContentType = "application/json"
-                    Response.Status = 200
-                    Response.Write DadosSessao
-                    Response.End
+                    call retornaAPI(MensagemTitulo, MensagemTexto, MensagemTipo, StatusRequisicao, True, DadosRetorno)
                 
             Case 2
 
@@ -373,9 +328,9 @@
 
                 'Definindo o cabeçalho'
 
-                    xhr.setRequestHeader "Authorization", "Bearer " & DadosSessao("Requisicao")("Retorno")("Token")
+                    xhr.setRequestHeader "Authorization", "Bearer " & DadosSessao("Token")
                     xhr.setRequestHeader "X-Api-Version", "2"
-                    xhr.setRequestHeader "X-Resource-Token", DadosSessao("Requisicao")("Retorno")("ResourceToken")
+                    xhr.setRequestHeader "X-Resource-Token", DadosSessao("ResourceToken")
                     xhr.setRequestHeader "Content-Type", "application/json;charset=UTF-8"
                     
                 'Enviando as informações'
@@ -403,23 +358,16 @@
                     MensagemTipo = "success"
                     StatusRequisicao = 200
 
-                    retornoJSON = "{"
-                    retornoJSON = retornoJSON & """Mensagem"": {"
-                    retornoJSON = retornoJSON & """Titulo"": """ & MensagemTitulo & ""","
-                    retornoJSON = retornoJSON & """Texto"": """ & MensagemTexto & ""","
-                    retornoJSON = retornoJSON & """Tipo"": """ & MensagemTipo & ""","
-                    retornoJSON = retornoJSON & "},"
-                    retornoJSON = retornoJSON & """Requisicao"": {"
-                    retornoJSON = retornoJSON & """Status"": " & StatusRequisicao & ","
-                    retornoJSON = retornoJSON & """Retorno"": """ & retorno("_embedded")("charges")(0)("checkoutUrl") & ""","
-                    retornoJSON = retornoJSON & """Link_Referencia"": """ & CVG_URL & """"
-                    retornoJSON = retornoJSON & "}"
-                    retornoJSON = retornoJSON & "}"
+                    DadosRetorno = "{"
+                    DadosRetorno = DadosRetorno & """Servico"": """ & Descricao & ""","
+                    DadosRetorno = DadosRetorno & """ValorTotal"": """ & ValorTotal & ""","
+                    DadosRetorno = DadosRetorno & """DataVencimento"": """ & DataVencimento & ""","
+                    DadosRetorno = DadosRetorno & """LinkPagamento"": """ & retorno("_embedded")("charges")(0)("checkoutUrl") & """"
+                    DadosRetorno = DadosRetorno & "}"
+                    
+                'Define o tipo de retorno e traz os dados em tela
 
-                    Response.ContentType = "application/json"
-                    Response.Status = 200
-                    Response.Write retornoJSON
-                    Response.End
+                    call retornaAPI(MensagemTitulo, MensagemTexto, MensagemTipo, StatusRequisicao, True, DadosRetorno)
 
         End Select
 

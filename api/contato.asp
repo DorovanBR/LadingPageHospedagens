@@ -5,6 +5,8 @@
 <!--#include file="helpers/helper_JSON.asp"-->
 <!--#include file="helpers/helper_Debugger.asp"-->
 <!--#include file="helpers/helper_ByteToString.asp"-->
+<!--#include file="helpers/helper_FuncoesURL.asp"-->
+<!--#include file="helpers/helper_FuncoesAPI.asp"-->
 <%
 
 	'+------------------------------------------------------------------------------+'
@@ -56,25 +58,11 @@
                             MensagemTexto = "O Codigo do Leading do registro não foi enviado ou esta incorreto, tente novamente mais tarde"
                             MensagemTipo = "error"
                             StatusRequisicao = 406
-
-                            retornoJSON = "{"
-                            retornoJSON = retornoJSON & """Mensagem"": {"
-                            retornoJSON = retornoJSON & """Titulo"": """ & MensagemTitulo & ""","
-                            retornoJSON = retornoJSON & """Texto"": """ & MensagemTexto & ""","
-                            retornoJSON = retornoJSON & """Tipo"": """ & MensagemTipo & ""","
-                            retornoJSON = retornoJSON & "},"
-                            retornoJSON = retornoJSON & """Requisicao"": {"
-                            retornoJSON = retornoJSON & """Status"": " & StatusRequisicao & ","
-                            retornoJSON = retornoJSON & """Link_Referencia"": """ & CVG_URL & """"
-                            retornoJSON = retornoJSON & "}"
-                            retornoJSON = retornoJSON & "}"
                             
                         'Define o tipo de retorno e traz os dados em tela
 
-                            Response.ContentType = "application/json"
-                            Response.Status = StatusRequisicao
-                            Response.Write retornoJSON
-                            Response.End
+                            call retornaAPI(MensagemTitulo, MensagemTexto, MensagemTipo, StatusRequisicao, false, DadosRetorno)
+
                     end if
 
                     if trim(Nome) <> "" then
@@ -87,25 +75,11 @@
                             MensagemTexto = "O Nome do registro não foi enviado ou esta incorreto, tente novamente mais tarde"
                             MensagemTipo = "error"
                             StatusRequisicao = 406
-
-                            retornoJSON = "{"
-                            retornoJSON = retornoJSON & """Mensagem"": {"
-                            retornoJSON = retornoJSON & """Titulo"": """ & MensagemTitulo & ""","
-                            retornoJSON = retornoJSON & """Texto"": """ & MensagemTexto & ""","
-                            retornoJSON = retornoJSON & """Tipo"": """ & MensagemTipo & ""","
-                            retornoJSON = retornoJSON & "},"
-                            retornoJSON = retornoJSON & """Requisicao"": {"
-                            retornoJSON = retornoJSON & """Status"": " & StatusRequisicao & ","
-                            retornoJSON = retornoJSON & """Link_Referencia"": """ & CVG_URL & """"
-                            retornoJSON = retornoJSON & "}"
-                            retornoJSON = retornoJSON & "}"
                             
                         'Define o tipo de retorno e traz os dados em tela
 
-                            Response.ContentType = "application/json"
-                            Response.Status = StatusRequisicao
-                            Response.Write retornoJSON
-                            Response.End
+                            call retornaAPI(MensagemTitulo, MensagemTexto, MensagemTipo, StatusRequisicao, false, DadosRetorno)
+
                     end if
 
                     if trim(Email) <> "" then
@@ -118,25 +92,11 @@
                             MensagemTexto = "O Email do registro não foi enviado ou esta incorreto, tente novamente mais tarde"
                             MensagemTipo = "error"
                             StatusRequisicao = 406
-
-                            retornoJSON = "{"
-                            retornoJSON = retornoJSON & """Mensagem"": {"
-                            retornoJSON = retornoJSON & """Titulo"": """ & MensagemTitulo & ""","
-                            retornoJSON = retornoJSON & """Texto"": """ & MensagemTexto & ""","
-                            retornoJSON = retornoJSON & """Tipo"": """ & MensagemTipo & ""","
-                            retornoJSON = retornoJSON & "},"
-                            retornoJSON = retornoJSON & """Requisicao"": {"
-                            retornoJSON = retornoJSON & """Status"": " & StatusRequisicao & ","
-                            retornoJSON = retornoJSON & """Link_Referencia"": """ & CVG_URL & """"
-                            retornoJSON = retornoJSON & "}"
-                            retornoJSON = retornoJSON & "}"
                             
                         'Define o tipo de retorno e traz os dados em tela
 
-                            Response.ContentType = "application/json"
-                            Response.Status = StatusRequisicao
-                            Response.Write retornoJSON
-                            Response.End
+                            call retornaAPI(MensagemTitulo, MensagemTexto, MensagemTipo, StatusRequisicao, false, DadosRetorno)
+
                     end if
 
                     if trim(Telefone) <> "" then
@@ -149,25 +109,11 @@
                             MensagemTexto = "O Telefone do registro não foi enviado ou esta incorreto, tente novamente mais tarde"
                             MensagemTipo = "error"
                             StatusRequisicao = 406
-
-                            retornoJSON = "{"
-                            retornoJSON = retornoJSON & """Mensagem"": {"
-                            retornoJSON = retornoJSON & """Titulo"": """ & MensagemTitulo & ""","
-                            retornoJSON = retornoJSON & """Texto"": """ & MensagemTexto & ""","
-                            retornoJSON = retornoJSON & """Tipo"": """ & MensagemTipo & ""","
-                            retornoJSON = retornoJSON & "},"
-                            retornoJSON = retornoJSON & """Requisicao"": {"
-                            retornoJSON = retornoJSON & """Status"": " & StatusRequisicao & ","
-                            retornoJSON = retornoJSON & """Link_Referencia"": """ & CVG_URL & """"
-                            retornoJSON = retornoJSON & "}"
-                            retornoJSON = retornoJSON & "}"
                             
                         'Define o tipo de retorno e traz os dados em tela
 
-                            Response.ContentType = "application/json"
-                            Response.Status = StatusRequisicao
-                            Response.Write retornoJSON
-                            Response.End
+                            call retornaAPI(MensagemTitulo, MensagemTexto, MensagemTipo, StatusRequisicao, false, DadosRetorno)
+
                     end if
 
                     if trim(Assunto) <> "" then
@@ -180,25 +126,11 @@
                             MensagemTexto = "O Assunto do registro não foi enviado ou esta incorreto, tente novamente mais tarde"
                             MensagemTipo = "error"
                             StatusRequisicao = 406
-
-                            retornoJSON = "{"
-                            retornoJSON = retornoJSON & """Mensagem"": {"
-                            retornoJSON = retornoJSON & """Titulo"": """ & MensagemTitulo & ""","
-                            retornoJSON = retornoJSON & """Texto"": """ & MensagemTexto & ""","
-                            retornoJSON = retornoJSON & """Tipo"": """ & MensagemTipo & ""","
-                            retornoJSON = retornoJSON & "},"
-                            retornoJSON = retornoJSON & """Requisicao"": {"
-                            retornoJSON = retornoJSON & """Status"": " & StatusRequisicao & ","
-                            retornoJSON = retornoJSON & """Link_Referencia"": """ & CVG_URL & """"
-                            retornoJSON = retornoJSON & "}"
-                            retornoJSON = retornoJSON & "}"
                             
                         'Define o tipo de retorno e traz os dados em tela
 
-                            Response.ContentType = "application/json"
-                            Response.Status = StatusRequisicao
-                            Response.Write retornoJSON
-                            Response.End
+                            call retornaAPI(MensagemTitulo, MensagemTexto, MensagemTipo, StatusRequisicao, false, DadosRetorno)
+
                     end if
 
                     if trim(Mensagem) <> "" then
@@ -211,25 +143,11 @@
                             MensagemTexto = "O Mensagem do registro não foi enviado ou esta incorreto, tente novamente mais tarde"
                             MensagemTipo = "error"
                             StatusRequisicao = 406
-
-                            retornoJSON = "{"
-                            retornoJSON = retornoJSON & """Mensagem"": {"
-                            retornoJSON = retornoJSON & """Titulo"": """ & MensagemTitulo & ""","
-                            retornoJSON = retornoJSON & """Texto"": """ & MensagemTexto & ""","
-                            retornoJSON = retornoJSON & """Tipo"": """ & MensagemTipo & ""","
-                            retornoJSON = retornoJSON & "},"
-                            retornoJSON = retornoJSON & """Requisicao"": {"
-                            retornoJSON = retornoJSON & """Status"": " & StatusRequisicao & ","
-                            retornoJSON = retornoJSON & """Link_Referencia"": """ & CVG_URL & """"
-                            retornoJSON = retornoJSON & "}"
-                            retornoJSON = retornoJSON & "}"
                             
                         'Define o tipo de retorno e traz os dados em tela
 
-                            Response.ContentType = "application/json"
-                            Response.Status = StatusRequisicao
-                            Response.Write retornoJSON
-                            Response.End
+                            call retornaAPI(MensagemTitulo, MensagemTexto, MensagemTipo, StatusRequisicao, false, DadosRetorno)
+
                     end if
 
                 'Insere os Campos de Controle
@@ -287,25 +205,10 @@
                     MensagemTexto = "Contato Cadastrado com sucesso."
                     MensagemTipo = "success"
                     StatusRequisicao = 200
-
-                    retornoJSON = "{"
-                    retornoJSON = retornoJSON & """Mensagem"": {"
-                    retornoJSON = retornoJSON & """Titulo"": """ & MensagemTitulo & ""","
-                    retornoJSON = retornoJSON & """Texto"": """ & MensagemTexto & ""","
-                    retornoJSON = retornoJSON & """Tipo"": """ & MensagemTipo & ""","
-                    retornoJSON = retornoJSON & "},"
-                    retornoJSON = retornoJSON & """Requisicao"": {"
-                    retornoJSON = retornoJSON & """Status"": " & StatusRequisicao & ","
-                    retornoJSON = retornoJSON & """Link_Referencia"": """ & CVG_URL & """"
-                    retornoJSON = retornoJSON & "}"
-                    retornoJSON = retornoJSON & "}"
                     
                 'Define o tipo de retorno e traz os dados em tela
 
-                    Response.ContentType = "application/json"
-                    Response.Status = StatusRequisicao
-                    Response.Write retornoJSON
-                    Response.End
+                    call retornaAPI(MensagemTitulo, MensagemTexto, MensagemTipo, StatusRequisicao, false, DadosRetorno)
 
             Case 2, 3
 
@@ -315,25 +218,10 @@
                     MensagemTexto = "Este Metodo não existe ou não esta liberado para acesso"
                     MensagemTipo = "error"
                     StatusRequisicao = 401
-
-                    retornoJSON = "{"
-                    retornoJSON = retornoJSON & """Mensagem"": {"
-                    retornoJSON = retornoJSON & """Titulo"": """ & MensagemTitulo & ""","
-                    retornoJSON = retornoJSON & """Texto"": """ & MensagemTexto & ""","
-                    retornoJSON = retornoJSON & """Tipo"": """ & MensagemTipo & ""","
-                    retornoJSON = retornoJSON & "},"
-                    retornoJSON = retornoJSON & """Requisicao"": {"
-                    retornoJSON = retornoJSON & """Status"": " & StatusRequisicao & ","
-                    retornoJSON = retornoJSON & """Link_Referencia"": """ & CVG_URL & """"
-                    retornoJSON = retornoJSON & "}"
-                    retornoJSON = retornoJSON & "}"
                     
                 'Define o tipo de retorno e traz os dados em tela
 
-                    Response.ContentType = "application/json"
-                    Response.Status = StatusRequisicao
-                    Response.Write retornoJSON
-                    Response.end
+                    call retornaAPI(MensagemTitulo, MensagemTexto, MensagemTipo, StatusRequisicao, false, DadosRetorno)
 
             Case 4
 
@@ -399,25 +287,13 @@
                     MensagemTipo = "success"
                     StatusRequisicao = 200
 
-                    retornoJSON = "{"
-                    retornoJSON = retornoJSON & """Mensagem"": {"
-                    retornoJSON = retornoJSON & """Titulo"": """ & MensagemTitulo & ""","
-                    retornoJSON = retornoJSON & """Texto"": """ & MensagemTexto & ""","
-                    retornoJSON = retornoJSON & """Tipo"": """ & MensagemTipo & ""","
-                    retornoJSON = retornoJSON & "},"
-                    retornoJSON = retornoJSON & """Requisicao"": {"
-                    retornoJSON = retornoJSON & """Retorno"": [" & EstruturaContato & "],"
-                    retornoJSON = retornoJSON & """Status"": " & StatusRequisicao & ","
-                    retornoJSON = retornoJSON & """Link_Referencia"": """ & CVG_URL & """"
-                    retornoJSON = retornoJSON & "}"
-                    retornoJSON = retornoJSON & "}"
+                    DadosRetorno = "{"
+                    DadosRetorno = DadosRetorno & """Contatos"": [" & EstruturaContato & "]"
+                    DadosRetorno = DadosRetorno & "}"
                     
                 'Define o tipo de retorno e traz os dados em tela
 
-                    Response.ContentType = "application/json"
-                    Response.Status = StatusRequisicao
-                    Response.Write retornoJSON
-                    Response.End
+                    call retornaAPI(MensagemTitulo, MensagemTexto, MensagemTipo, StatusRequisicao, True, DadosRetorno)
 
         End Select
 
