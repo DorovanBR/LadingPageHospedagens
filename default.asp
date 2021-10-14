@@ -9,6 +9,10 @@
 	<!-- Page Title -->
 	<title>New Template — Slides 4.0.5 Template Generator</title>
 
+  <!-- Boostrap 5-->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+
 	<!-- Compressed Styles -->
 	<link href="css/slides.min.css" rel="stylesheet" type="text/css">
 
@@ -26,10 +30,33 @@
 
 	<!-- Fonts and Material Icons -->
 	<link rel="stylesheet" as="font" href="https://fonts.googleapis.com/css?family=Roboto:100,300,400,500,600,700|Material+Icons"/>
- 
+
+	<!-- iziModal -->
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/izimodal/1.5.1/css/iziModal.css" integrity="sha512-pH06JFjxM84j7iRF99/Cw7d9R9m2mVmEVr8oI0kK8gVkr461DI+8OYpQctHUrbmdOH7oaRyDRkkCVlQIQCFEiQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/izimodal/1.5.1/js/iziModal.js" integrity="sha512-fOWk6n+fmfFNHxlw7GapMIXgsNkSR2+GaKj40YUCErg2tThtROhqD6pxfLOqbo6kA2De2qPXEiv+7HltNDrDNA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+	
+	<!-- jQuery_Mask -->
+  <script src="./assets/plugins/jQuery_Mask/jquery.mask.js"></script>	
+
+	<!-- sweetAlert2 -->
+  <script src="./assets/plugins/SweetAlert2/sweetalert2.all.js"></script>
+
+  <style>
+    .price{
+      font-size: 80px;
+    }
+    .form-control{
+      font-size: 3rem;
+    }
+    .btn{
+      font-size: 3rem;
+    }
+  </style>
 </head>
 <body class="slides horizontal simplifiedMobile animated">
+<!--#include file="./assets/html/modal/modal_cad_ordem_servico.asp"-->
 <input type="hidden" name="input-ip" value="<%=CVG_REMOTE_ADDR%>">
+<input type="hidden" name="input-servico" value="">
 		
 <!-- SVG Library -->
 <svg xmlns="http://www.w3.org/2000/svg" style="display:none">
@@ -390,57 +417,7 @@
       
         <div class="fix-10-12">
           <h1 class="ae-1">Nossos Planos</h1>
-          <ul class="grid grid-83 noSpaces equal ae-2 fadeIn">
-            <li class="col-4-12 ae-3" style="background: #F5FBFE">
-              <h3>Moon</h3>
-              <div class="price ae-5"><span class="currency">$</span>0</div>
-              <div class="ae-5">
-                <h6 class="uppercase bold small opacity-4">No Credit Card Needed</h6>
-              </div>
-              <div class="margin-top-3 margin-bottom-3 equalElement ae-6">
-                <ul class="p tiny">
-                  <li><strong>25 Free Images</strong></li>
-                  <li class="opacity-7">Custom Domain</li>
-                  <li class="opacity-7">24/7 Customer Support</li>
-                </ul>
-              </div>
-              <a href="javascript:false;" id="btn-selecionar-hospedagem" class="button blue gradient wide cropSides cropBottom ae-7">Try Free</a>
-            </li>
-            <li class="col-4-12 ae-4">
-              <h3>Planet</h3>
-              <div class="price ae-6"><span class="currency">$</span>6</div>
-              <div class="ae-6">
-                <h6 class="uppercase bold small opacity-4">Billed per Month</h6>
-              </div>
-              <div class="margin-top-3 margin-bottom-3 equalElement ae-7">
-                <ul class="p tiny">
-                  <li><strong>60 Free Images</strong></li>
-                  <li><strong>Mobile-Optimized</strong></li>
-                  <li><strong>No Transaction Fees</strong></li>
-                  <li class="opacity-8">Custom Domain</li>
-                  <li class="opacity-8">24/7 Customer Support</li>
-                </ul>
-              </div>
-              <a href="javascript:false;" id="btn-selecionar-hospedagem" class="button green gradient wide cropSides cropBottom ae-8">Purchase</a>
-            </li>
-            <li class="col-4-12 ae-5">
-              <h3>Galaxy</h3>
-              <div class="price ae-7"><span class="currency">$</span>24</div>
-              <div class="ae-7">
-                <h6 class="uppercase bold small opacity-4">Billed per Month</h6>
-              </div>
-              <div class="margin-top-3 margin-bottom-3 equalElement ae-8">
-                <ul class="p tiny">
-                  <li><strong>60 Free Images</strong></li>
-                  <li><strong>Mobile-Optimized</strong></li>
-                  <li><strong>No Transaction Fees</strong></li>
-                  <li><strong>Unlimited Projects</strong></li>
-                  <li class="opacity-8">Custom Domain</li>
-                  <li class="opacity-8">24/7 Customer Support</li>
-                </ul>
-              </div>
-              <a href="javascript:false;" id="btn-selecionar-hospedagem" class="button green gradient wide cropSides cropBottom ae-9">Purchase</a>
-            </li>
+          <ul class="grid grid-83 noSpaces equal ae-2 fadeIn" id="Servicos-Registros">
           </ul>
         </div> 
 
@@ -506,6 +483,7 @@
 <!-- Loading Progress Bar -->
 <div class="progress-bar blue"></div>
 
+<script src="./assets/js/funcoes.js" type="text/javascript"></script>
 <script src="./assets/js/default.js" type="text/javascript"></script>
 		
 </body>
