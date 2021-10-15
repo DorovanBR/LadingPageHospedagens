@@ -7,7 +7,7 @@
 	<meta name="apple-mobile-web-app-capable" content="yes" />
 
 	<!-- Page Title -->
-	<title>New Template — Slides 4.0.5 Template Generator</title>
+	<title>SOS Hospedagens</title>
 
   <!-- Boostrap 5-->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
@@ -55,6 +55,7 @@
 </head>
 <body class="slides horizontal simplifiedMobile animated">
 <!--#include file="./assets/html/modal/modal_cad_ordem_servico.asp"-->
+<!--#include file="./assets/html/modal/modal_cad_contato.asp"-->
 <input type="hidden" name="input-ip" value="<%=CVG_REMOTE_ADDR%>">
 <input type="hidden" name="input-servico" value="">
 		
@@ -138,13 +139,13 @@
     <div class="left"><a href="https://designmodo.com/?u=3165" title="Slides Framework"><img src="./assets/img/logo.png" class="img-fluid" width="150px"></a></div>
     <div class="center">
       <ul class="menu">
-        <li><a href="#">Home</a></li>
-        <li><a href="#">Benefícios</a></li>
-        <li><a href="#">Cases</a></li>
-        <li><a href="#">Só Vamo pra Contratação</a></li>
+        <li><a href="#section-home">Home</a></li>
+        <li><a href="#section-beneficios">Benefícios</a></li>
+        <li><a href="#section-casos-sucesso">Cases</a></li>
+        <li><a href="#section-planos">Só Vamo pra Contratação</a></li>
       </ul>
     </div>
-    <div class="right"><a class="button blue gradient" href="#">Profile</a><a class="button green gradient" href="#">Get App</a></div>
+    <div class="right"><a class="button blue gradient" href="#section-planos">Planos</a><a class="button green gradient" href="javascript:;" id="btn-modal-contato">Contato</a></div>
   </div>
   <div class="sections compact hidden">
     <div class="left"><a href="#" title="Slides Framework"><svg style="width:82px;height:24px"><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#logo"></use></svg></a></div>
@@ -181,7 +182,7 @@
 </nav>
 
 <!-- Slide 1 (#34) -->
-<section class="slide fade-6 kenBurns">
+<section class="slide fade-6 kenBurns" id="section-home">
   <div class="content">
     <div class="container">
       <div class="wrap">
@@ -191,7 +192,7 @@
             <li class="col-6-12 left middle">
               <h1 class="ae-1 fromLeft">Precisa de hospedanges? calma, vamos te ajudar!</h1>
               <p class="ae-2 fromLeft"><span class="opacity-8">Contratar uma hospedagem nunca foi tão fácil. Direto do seu celular, faça todos os procedimentos.</span></p>
-              <a class="button blue gradient ae-3 fromCenter cropLeft">Sem papo, só vamo</a><a class="button white ae-4 fromCenter">Saber Mais</a>
+              <a class="button blue gradient ae-3 fromCenter cropLeft" href="#section-planos">Sem papo, só vamo</a><a class="button white ae-4 fromCenter" href="#section-beneficios">Saber Mais</a>
             </li>
             <li class="col-6-12">
               <img class="ae-4" width="605" src="assets/img/iphones-34.png" alt="iPhones Thumbnail" data-action="zoom"/>
@@ -206,7 +207,7 @@
 </section>
 
 <!-- Slide 2 (#60) -->
-<section class="slide fade-6 kenBurns">
+<section class="slide fade-6 kenBurns" id="section-beneficios">
   <div class="content">
     <div class="container">
       <div class="wrap">
@@ -280,7 +281,7 @@
 
 
 <!-- Slide 3 (#27) -->
-<section class="slide fade-6 kenBurns">
+<section class="slide fade-6 kenBurns" id="section-casos-sucesso">
   <div class="content">
     <div class="container">
       <div class="wrap">
@@ -381,7 +382,7 @@
           <div class="fix-7-12">
             <p class="margin-bottom-2 ae-1"><span class="opacity-6">Nossos Objetivos</p>
             <h1 class="ae-2 huge fromAbove margin-bottom-2">Seu recurso é nossa obra prima</h1>
-            <a href="#" class="button green gradient ae-3">Contrate já um de nossos planos</a>
+            <a class="button green gradient ae-3" href="#section-planos">Contrate já um de nossos planos</a>
           </div>
           <ul class="grid fixedSpaces left margin-top-10">
             <li class="col-3-12 col-tablet-1-2 col-phablet-1-1 ae-4 fromLeft">
@@ -410,7 +411,7 @@
 </section>
 
 <!-- Slide 6 (#83) -->
-<section class="slide fade-6 kenBurns">
+<section class="slide fade-6 kenBurns" id="section-planos">
   <div class="content">
     <div class="container">
       <div class="wrap">
@@ -428,7 +429,7 @@
 </section>
 
 <!-- Slide 7 (#95) -->
-<section class="slide fade-6 kenBurns">
+<!--<section class="slide fade-6 kenBurns">
   <div class="content">
     <div class="container">
       <div class="wrap">
@@ -449,12 +450,12 @@
     </div>
   </div>
   <div class="background" style="background-image:url(assets/img/background/img-95.jpg)"></div>
-</section>
+</section>-->
 
 <!-- Panel Bottom #01 -->
 <nav class="panel bottom forceMobileView">
   <div class="sections desktop">
-    <div class="left"><a href="#" class="opacity-8">Available <svg style="height:21px;"><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#apple"></use></svg> iPhone</a></div>
+    <div class="left"><!--<a href="#" class="opacity-8">Available <svg style="height:21px;"><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#apple"></use></svg> iPhone</a>--></div>
     <div class="center"><span class="nextSlide"><svg><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#arrow-down"></use></svg></span></div>
     <div class="right"><span data-dropdown-id="2" class="button actionButton dropdownTrigger"><svg><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#share"></use></svg></span></div>
   </div>

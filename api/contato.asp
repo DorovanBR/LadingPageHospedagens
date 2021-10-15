@@ -181,20 +181,20 @@
 
                     Set myMail = CreateObject("CDO.Message")
                     Set objCDOSYSCon = Server.CreateObject ("CDO.Configuration")
-                        objCDOSYSCon.Fields("http://schemas.microsoft.com/cdo/configuration/smtpserver") = "cursoemlive.creatise.com.br" 
-                        objCDOSYSCon.Fields("http://schemas.microsoft.com/cdo/configuration/smtpserverport") = 465 
-                        objCDOSYSCon.Fields.Item("http://schemas.microsoft.com/cdo/configuration/smtpusessl") = True
-                        objCDOSYSCon.Fields("http://schemas.microsoft.com/cdo/configuration/sendusing") = 2
-                        objCDOSYSCon.Fields("http://schemas.microsoft.com/cdo/configuration/smtpauthenticate") = 1 
-                        objCDOSYSCon.Fields("http://schemas.microsoft.com/cdo/configuration/sendusername") = "site@cursoemlive.creatise.com.br" 
-                        objCDOSYSCon.Fields("http://schemas.microsoft.com/cdo/configuration/sendpassword") = "@Site123!" 
-                        objCDOSYSCon.Fields("http://schemas.microsoft.com/cdo/configuration/smtpconnectiontimeout") = 60
+                        objCDOSYSCon.Fields("http://schemas.microsoft.com/cdo/configuration/smtpserver") = "" 'Servidor SMTP
+                        objCDOSYSCon.Fields("http://schemas.microsoft.com/cdo/configuration/smtpserverport") = 465  'Porta SMTP
+                        objCDOSYSCon.Fields.Item("http://schemas.microsoft.com/cdo/configuration/smtpusessl") = True 'Usa SSL SMTP
+                        objCDOSYSCon.Fields("http://schemas.microsoft.com/cdo/configuration/sendusing") = 2 'Tipo de Envio
+                        objCDOSYSCon.Fields("http://schemas.microsoft.com/cdo/configuration/smtpauthenticate") = 1 'Tipo de Autenticação
+                        objCDOSYSCon.Fields("http://schemas.microsoft.com/cdo/configuration/sendusername") = "" 'Username [Email] 
+                        objCDOSYSCon.Fields("http://schemas.microsoft.com/cdo/configuration/sendpassword") = "" 'Senha
+                        objCDOSYSCon.Fields("http://schemas.microsoft.com/cdo/configuration/smtpconnectiontimeout") = 60 'Timeout
                         objCDOSYSCon.Fields.Update
                     myMail.Configuration = objCDOSYSCon
                     myMail.AutoGenerateTextBody = False
-                    myMail.From = "SOS Hospedagens" & "<site@cursoemlive.creatise.com.br>"
+                    myMail.From = "SOS Hospedagens" & "<>" '<Username [Email]>
                     myMail.To = Nome & " <" & Email & ">"
-                    myMail.Subject = Assunto
+                    myMail.Subject = DecodeUTF8(Assunto)
                     myMail.HTMLBody = Mensagem & " - Contato: " & Telefone & " - Nome: " & Nome
                     myMail.Send
                     set myMail = nothing

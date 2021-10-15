@@ -77,13 +77,13 @@
 									"type": "text"
 								},
 								{
-									"key": "xPicpayToken",
-									"value": "2121",
+									"key": "JunoClientId",
+									"value": "g33B1pqmCBFiCTaP",
 									"type": "text"
 								},
 								{
-									"key": "xSellerToken",
-									"value": "1212",
+									"key": "JunoClientSecret",
+									"value": "my20#gI{=l*3=P?;8X6p^34W0#3^vJgX",
 									"type": "text"
 								},
 								{
@@ -238,7 +238,7 @@
 								},
 								{
 									"key": "Codigo",
-									"value": "1",
+									"value": "2",
 									"type": "text"
 								}
 							]
@@ -454,7 +454,7 @@
 								},
 								{
 									"key": "Nome",
-									"value": "Teste Testado Testando",
+									"value": "Teste Testado Testando Testadão",
 									"type": "text"
 								},
 								{
@@ -559,7 +559,7 @@
 								},
 								{
 									"key": "Codigo",
-									"value": "2",
+									"value": "1",
 									"type": "text"
 								}
 							]
@@ -861,12 +861,12 @@
 								},
 								{
 									"key": "Nome",
-									"value": "Plano Basic",
+									"value": "Plano Basic Basic",
 									"type": "text"
 								},
 								{
 									"key": "Descricao",
-									"value": "\"{\\\"teste\\\": \\\"Testado\\\"}\"",
+									"value": "Básico do Básico",
 									"type": "text"
 								},
 								{
@@ -921,7 +921,7 @@
 								},
 								{
 									"key": "Nome",
-									"value": "Plano Starter",
+									"value": "Plano Starter Starter",
 									"type": "text"
 								},
 								{
@@ -978,7 +978,7 @@
 								},
 								{
 									"key": "Codigo",
-									"value": "2",
+									"value": "1",
 									"type": "text"
 								}
 							]
@@ -1290,6 +1290,131 @@
 							"path": [
 								"api",
 								"ordem_servico.asp"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Juno",
+			"item": [
+				{
+					"name": "Autenticação Juno",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "suahushaushaushuah",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "Funcao",
+									"value": "1",
+									"type": "text"
+								},
+								{
+									"key": "Servidor",
+									"value": "Homologação",
+									"type": "text"
+								},
+								{
+									"key": "Configuracao",
+									"value": "8",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://soshospedagens.local/api/juno.asp",
+							"protocol": "http",
+							"host": [
+								"soshospedagens",
+								"local"
+							],
+							"path": [
+								"api",
+								"juno.asp"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Cadastro de Cobrança",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "suahushaushaushuah",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "Funcao",
+									"value": "2",
+									"type": "text"
+								},
+								{
+									"key": "Servidor",
+									"value": "Homologação",
+									"type": "text"
+								},
+								{
+									"key": "Configuracao",
+									"value": "8",
+									"type": "text"
+								},
+								{
+									"key": "Leading",
+									"value": "13",
+									"type": "text"
+								},
+								{
+									"key": "Servico",
+									"value": "1",
+									"type": "text"
+								},
+								{
+									"key": "DataVencimento",
+									"value": "2021-10-08",
+									"type": "text"
+								},
+								{
+									"key": "TiposPagamento",
+									"value": "\"BOLETO\", \"CREDIT_CARD\"",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://soshospedagens.local/api/juno.asp",
+							"protocol": "http",
+							"host": [
+								"soshospedagens",
+								"local"
+							],
+							"path": [
+								"api",
+								"juno.asp"
 							]
 						}
 					},

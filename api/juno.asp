@@ -269,7 +269,7 @@
                     DataVencimento = Request("DataVencimento")
                     TiposPagamento = Request("TiposPagamento")
                     
-                    Nome = ConsultaLeading("nome")
+                    Nome = DecodeUTF8(ConsultaLeading("nome"))
                     Documento = replace(replace(ConsultaLeading("cpf_cnpj"), ".", ""), "-", "")
                     Email = ConsultaLeading("email")
                     Contato = replace(replace(replace(replace(ConsultaLeading("telefone"), " ", ""), "-", ""), "(", ""), ")", "")
@@ -340,6 +340,7 @@
                 'Transforma o retorno em JSON
 
                     set retorno = JSON.parse(xhr.ResponseText)
+                    ' call debuga(xhr.ResponseText, false)
 
                 'Declara as Variaveis de Controle
 

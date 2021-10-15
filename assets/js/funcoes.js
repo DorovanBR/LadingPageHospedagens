@@ -9,15 +9,6 @@
 	    }
 	};
 
-	var SPMaskBehavior2 = function (val) {
-		return val.replace(/\D/g, '').length === 11 ? '000.000.000-00' : '00.000.000/0000-09';
-	  },
-	  spOptions2 = {
-		onKeyPress: function(val, e, field, options) {
-			field.mask(SPMaskBehavior2.apply({}, arguments), options);
-		  }
-	  };
-
 //------------------------------------------------------------------------------------------------------------------------
 //------------------------------------------------------------------------------------------------------------------------
 //------------------------------------------------------------------------------------------------------------------------
@@ -335,6 +326,130 @@
 		  (function(a){if(regex1.test(a)||regex2.test(a.substr(0,4))) check = true;})(navigator.userAgent||navigator.vendor||window.opera);
 		  return check;
 		}
+
+//------------------------------------------------------------------------------------------------------------------------
+//------------------------------------------------------------------------------------------------------------------------
+//------------------------------------------------------------------------------------------------------------------------
+
+	// Função para Validar Documento
+
+	function ValidaDocumento(tipo, documento){
+			
+		// Verifica qual documento será validado
+
+			switch(tipo){
+				case 1: // CPF
+					var DocumentoTratado = documento.replace(/\./g, "").replace(/\-/g, "");
+					var regRepetido = /([0-9])\1{10}/g;
+					var Digito1 = 0;
+					var Digito2 = 0;
+					var CPFprimeirosDigitos = (documento.split("-")[0]).split(".")[0];
+					var CPFsegundosDigitos = (documento.split("-")[0]).split(".")[1];
+					var CPFterceirosDigitos = (documento.split("-")[0]).split(".")[2];
+					var CPFdigitosVerificadores = documento.split("-")[1];
+
+					Digito1 = Digito1 + (10 * parseInt(CPFprimeirosDigitos[0]));
+					Digito1 = Digito1 + (9 * parseInt(CPFprimeirosDigitos[1]));
+					Digito1 = Digito1 + (8 * parseInt(CPFprimeirosDigitos[2]));
+					Digito1 = Digito1 + (7 * parseInt(CPFsegundosDigitos[0]));
+					Digito1 = Digito1 + (6 * parseInt(CPFsegundosDigitos[1]));
+					Digito1 = Digito1 + (5 * parseInt(CPFsegundosDigitos[2]));
+					Digito1 = Digito1 + (4 * parseInt(CPFterceirosDigitos[0]));
+					Digito1 = Digito1 + (3 * parseInt(CPFterceirosDigitos[1]));
+					Digito1 = Digito1 + (2 * parseInt(CPFterceirosDigitos[2]));
+
+					Digito1 = Digito1 % 11;
+					Digito1 = 11 - Digito1;
+
+					if(Digito1 > 9){
+						Digito1 = 0
+					}
+
+					Digito2 = Digito2 + (11 * parseInt(CPFprimeirosDigitos[0]));
+					Digito2 = Digito2 + (10 * parseInt(CPFprimeirosDigitos[1]));
+					Digito2 = Digito2 + (9 * parseInt(CPFprimeirosDigitos[2]));
+					Digito2 = Digito2 + (8 * parseInt(CPFsegundosDigitos[0]));
+					Digito2 = Digito2 + (7 * parseInt(CPFsegundosDigitos[1]));
+					Digito2 = Digito2 + (6 * parseInt(CPFsegundosDigitos[2]));
+					Digito2 = Digito2 + (5 * parseInt(CPFterceirosDigitos[0]));
+					Digito2 = Digito2 + (4 * parseInt(CPFterceirosDigitos[1]));
+					Digito2 = Digito2 + (3 * parseInt(CPFterceirosDigitos[2]));
+					Digito2 = Digito2 + (2 * Digito1);
+
+					Digito2 = Digito2 % 11;
+					Digito2 = 11 - Digito2;
+
+					if(Digito2 > 9){
+						Digito2 = 0
+					}
+
+					if(Digito1 == parseInt(CPFdigitosVerificadores[0]) && Digito2 == parseInt(CPFdigitosVerificadores[1]) && !regRepetido.test(DocumentoTratado)){
+						return true;
+					} else {
+						return false;
+					}
+					break;
+				case 2: // CNPJ
+					var DocumentoTratado = documento.replace(/\./g, "").replace(/\//g, "").replace(/\-/g, "");
+					var regRepetido = /([0-9])\1{10}/g;
+					var Digito1 = 0;
+					var Digito2 = 0;
+					var CNPJprimeirosDigitos = (documento.split("/")[0]).split(".")[0];
+					var CNPJsegundosDigitos = (documento.split("/")[0]).split(".")[1];
+					var CNPJterceirosDigitos = (documento.split("/")[0]).split(".")[2];
+					var CNPJquartosDigitos = (documento.split("/")[1]).split("-")[0];
+					var CNPJdigitosVerificadores = documento.split("-")[1];
+
+					Digito1 = Digito1 + (5 * parseInt(CNPJprimeirosDigitos[0]));
+					Digito1 = Digito1 + (4 * parseInt(CNPJprimeirosDigitos[1]));
+					Digito1 = Digito1 + (3 * parseInt(CNPJsegundosDigitos[0]));
+					Digito1 = Digito1 + (2 * parseInt(CNPJsegundosDigitos[1]));
+					Digito1 = Digito1 + (9 * parseInt(CNPJsegundosDigitos[2]));
+					Digito1 = Digito1 + (8 * parseInt(CNPJterceirosDigitos[0]));
+					Digito1 = Digito1 + (7 * parseInt(CNPJterceirosDigitos[1]));
+					Digito1 = Digito1 + (6 * parseInt(CNPJterceirosDigitos[2]));
+					Digito1 = Digito1 + (5 * parseInt(CNPJquartosDigitos[0]));
+					Digito1 = Digito1 + (4 * parseInt(CNPJquartosDigitos[1]));
+					Digito1 = Digito1 + (3 * parseInt(CNPJquartosDigitos[2]));
+					Digito1 = Digito1 + (2 * parseInt(CNPJquartosDigitos[3]));
+
+					Digito1 = Digito1 % 11;
+					Digito1 = 11 - Digito1;
+
+					if(Digito1 > 9){
+						Digito1 = 0
+					}
+
+					Digito2 = Digito2 + (6 * parseInt(CNPJprimeirosDigitos[0]));
+					Digito2 = Digito2 + (5 * parseInt(CNPJprimeirosDigitos[1]));
+					Digito2 = Digito2 + (4 * parseInt(CNPJsegundosDigitos[0]));
+					Digito2 = Digito2 + (3 * parseInt(CNPJsegundosDigitos[1]));
+					Digito2 = Digito2 + (2 * parseInt(CNPJsegundosDigitos[2]));
+					Digito2 = Digito2 + (9 * parseInt(CNPJterceirosDigitos[0]));
+					Digito2 = Digito2 + (8 * parseInt(CNPJterceirosDigitos[1]));
+					Digito2 = Digito2 + (7 * parseInt(CNPJterceirosDigitos[2]));
+					Digito2 = Digito2 + (6 * parseInt(CNPJquartosDigitos[0]));
+					Digito2 = Digito2 + (5 * parseInt(CNPJquartosDigitos[1]));
+					Digito2 = Digito2 + (4 * parseInt(CNPJquartosDigitos[2]));
+					Digito2 = Digito2 + (3 * parseInt(CNPJquartosDigitos[3]));
+					Digito2 = Digito2 + (2 * Digito1);
+
+					Digito2 = Digito2 % 11;
+					Digito2 = 11 - Digito2;
+
+					if(Digito2 > 9){
+						Digito2 = 0
+					}
+
+					if(Digito1 == parseInt(CNPJdigitosVerificadores[0]) && Digito2 == parseInt(CNPJdigitosVerificadores[1]) && !regRepetido.test(DocumentoTratado)){
+						return true;
+					} else {
+						return false;
+					}
+					break;
+			}
+
+	}
 
 //------------------------------------------------------------------------------------------------------------------------
 //------------------------------------------------------------------------------------------------------------------------
